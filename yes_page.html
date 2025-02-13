@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please sa- Wait Really?</title>
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="Laufey - Valentine (Karaoke).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    <div class="container">
+        <h1 class="header_text">Please sa- Wait Really? </h1>
+        <div class="gif_container">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
+        </div>
+    </div>
+</body>
+<script>
+    window.location.href = "wait.html";
+</script>
+
+<script>
+    window.onload = function () {
+        const audio = document.getElementById("bg-music");
+        audio.volume = 0.5; // Adjust volume (0.0 to 1.0)
+
+        // Try autoplay, fallback if blocked
+        audio.play().catch(() => {
+            console.log("Autoplay blocked! Waiting for user interaction...");
+            document.body.addEventListener("click", () => {
+                audio.play();
+            }, { once: true }); // Plays after first user interaction
+        });
+    };
+</script>
+</html>
